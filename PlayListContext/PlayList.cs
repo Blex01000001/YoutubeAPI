@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YoutubeAPI.PlayListContext.Models.Request;
 using YoutubeAPI.PlayListContext.Models.Reponse;
 
 namespace YoutubeAPI.PlayListContext
@@ -31,11 +32,29 @@ namespace YoutubeAPI.PlayListContext
         }
         public async void CreateAsync(string title, string description, string privacyStatus)
         {
+            string endpoint = "https://www.googleapis.com/youtube/v3/playlists?part=snippet,status";
+            var commentBody = new AddPlaylistRequest
+            {
+                snippet = new AddPlaylistRequest.Snippet
+                {
+                    title = title,
+                    description = description
+                },
+                status = new AddPlaylistRequest.Status
+                {
+                    privacyStatus = privacyStatus
+                }
+            };
+            var postResult = await _httpRequest.PostAsync<AddPlaylistResponse>(endpoint, commentBody);
+            Console.WriteLine($"創建成功！ ID: {postResult.id}");
 
         }
         public async void DeleteAsync(string id)
         {
-
+            string playlistId = id;
+            string endpoint = $"https://www.googleapis.com/youtube/v3/playlists?id={playlistId}";
+            await _httpRequest.DeleteAsync(endpoint);
+            Console.WriteLine("播放清單已刪除！");
         }
     }
 }

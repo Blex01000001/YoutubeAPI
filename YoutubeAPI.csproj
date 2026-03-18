@@ -65,6 +65,9 @@
     <Reference Include="Microsoft.Extensions.Primitives, Version=10.0.0.5, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Extensions.Primitives.10.0.5\lib\net462\Microsoft.Extensions.Primitives.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
@@ -107,13 +110,16 @@
     <Compile Include="CommentContext\Models\Reponse\EditCommentResponse.cs" />
     <Compile Include="CommentContext\Models\Request\CommentRequest.cs" />
     <Compile Include="CommentContext\Models\Request\EditCommentRequest.cs" />
+    <Compile Include="PlayListContext\Models\Reponse\AddPlaylistResponse.cs" />
     <Compile Include="PlayListContext\Models\Reponse\PlaylistListResponse.cs" />
+    <Compile Include="PlayListContext\Models\Request\AddPlaylistRequest.cs" />
     <Compile Include="PlayListContext\PlayList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VideoContext\Models\Reponse\CommentListResponse.cs" />
     <Compile Include="VideoContext\Models\Reponse\SearchListResponse.cs" />
     <Compile Include="VideoContext\Models\Reponse\VideoListResponse.cs" />
+    <Compile Include="VideoContext\Models\Request\UploadVideoRequest.cs" />
     <Compile Include="VideoContext\Video.cs" />
     <Compile Include="YoutubeContext.cs" />
   </ItemGroup>
@@ -123,8 +129,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ChannelContext\Models\Request\" />
-    <Folder Include="PlayListContext\Models\Request\" />
-    <Folder Include="VideoContext\Models\Request\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets" Condition="Exists('packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets')" />
